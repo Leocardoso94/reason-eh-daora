@@ -28,9 +28,14 @@ rule build_cmj_cmi
 build re/app.cmj |  $src_root_dir/lib/js/re/app.js re/app.cmi : build_cmj_cmi re/app.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
+build re/MapView.mlast : build_ast_and_module_sets_from_re $src_root_dir/re/MapView.re
+build re/MapView.mlast.d : build_deps re/MapView.mlast
+build re/MapView.cmj |  $src_root_dir/lib/js/re/MapView.js re/MapView.cmi : build_cmj_cmi re/MapView.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
 build re/RestaurantCard.mlast : build_ast_and_module_sets_from_re $src_root_dir/re/RestaurantCard.re
 build re/RestaurantCard.mlast.d : build_deps re/RestaurantCard.mlast
 build re/RestaurantCard.cmj |  $src_root_dir/lib/js/re/RestaurantCard.js re/RestaurantCard.cmi : build_cmj_cmi re/RestaurantCard.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
-build build.ninja : phony  ||  re/RestaurantCard.mlast.d re/app.mlast.d
+build build.ninja : phony  ||  re/RestaurantCard.mlast.d re/MapView.mlast.d re/app.mlast.d

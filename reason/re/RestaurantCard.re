@@ -18,7 +18,9 @@ let component = ReasonReact.statelessComponent("RestaurantCard");
 let make = (~restaurant, _children) => {
   ...component, /* spread the template's other defaults into here  */
   render: _self =>
-    <Text>
+    <View style=Style.(style([padding(Pt(4.)), borderBottomColor(String("black")), borderBottomWidth(2.), flexGrow(1.)]))>
+    <Text style=Style.(style([fontSize(Float(24.))]))>
         {ReasonReact.string(restaurant.name)}
     </Text>
+    </View>
 };

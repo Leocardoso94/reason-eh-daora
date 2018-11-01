@@ -3,6 +3,7 @@
 
 var List = require("bs-platform/lib/js/list.js");
 var $$Array = require("bs-platform/lib/js/array.js");
+var MapView = require("./MapView.js");
 var ReasonReact = require("reason-react/lib/js/src/ReasonReact.js");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
 var RestaurantCard = require("./RestaurantCard.js");
@@ -67,10 +68,14 @@ function app() {
                             ]
                           ])), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[
                   ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Reason é da hora!", /* array */[])),
-                  $$Array.of_list(cards)
+                  $$Array.of_list(cards),
+                  ReasonReact.element(undefined, undefined, MapView.make(/* record */[
+                            /* latitude */0.0,
+                            /* longitude */0.0
+                          ], /* array */[]))
                 ]));
 }
 
 exports.restaurants = restaurants;
 exports.app = app;
-/* ReasonReact Not a pure module */
+/* MapView Not a pure module */
