@@ -2,7 +2,7 @@
 'use strict';
 
 var List = require("bs-platform/lib/js/list.js");
-var $$Array = require("bs-platform/lib/js/array.js");
+var Block = require("bs-platform/lib/js/block.js");
 var MapView = require("./MapView.js");
 var ReasonReact = require("reason-react/lib/js/src/ReasonReact.js");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
@@ -54,9 +54,15 @@ var restaurants = /* :: */[
 ];
 
 function app() {
-  var cards = List.mapi((function (i, r) {
+  List.mapi((function (i, r) {
           return ReasonReact.element(String(i), undefined, RestaurantCard.make(r, /* array */[]));
         }), restaurants);
+  var regiao = {
+    latitude: -23.5720498,
+    longitude: -46.6918662,
+    latitudeDelta: 0.09,
+    longitudeDelta: 0.04
+  };
   return ReasonReact.element(undefined, undefined, View$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Js_primitive.some(Style$BsReactNative.style(/* :: */[
                             Style$BsReactNative.flex(1),
                             /* :: */[
@@ -68,11 +74,13 @@ function app() {
                             ]
                           ])), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[
                   ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Reason é da hora!", /* array */[])),
-                  $$Array.of_list(cards),
-                  ReasonReact.element(undefined, undefined, MapView.make(/* record */[
-                            /* latitude */0.0,
-                            /* longitude */0.0
-                          ], /* array */[]))
+                  ReasonReact.element(undefined, undefined, MapView.make(regiao, Js_primitive.some(Style$BsReactNative.style(/* :: */[
+                                    Style$BsReactNative.width(/* Pt */Block.__(0, [400])),
+                                    /* :: */[
+                                      Style$BsReactNative.height(/* Pt */Block.__(0, [400])),
+                                      /* [] */0
+                                    ]
+                                  ])), /* array */[]))
                 ]));
 }
 

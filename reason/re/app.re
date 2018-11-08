@@ -15,11 +15,11 @@ let app = () => {
         key=string_of_int(i)
       />
   }, restaurants);
-  let regiao: MapView.region_t = {latitude: 0.0, longitude: 0.0};
+  let regiao = MapView.region_t(~latitude=-23.5720498, ~longitude=-46.6918662, ~latitudeDelta=0.09, ~longitudeDelta=0.04);
 
   <View style=Style.(style([flex(1.), justifyContent(Center), alignItems(Center)]))>
     <Text value={js|Reason é da hora!|js} />
-    (ReasonReact.array(Array.of_list(cards)))
+    /* (ReasonReact.array(Array.of_list(cards))) */
 
-    <MapView region=regiao />
+    <MapView region=regiao style=Style.(style([width(Pt(400.)), height(Pt(400.))])) />
   </View>};

@@ -1,16 +1,16 @@
 bs_package_flags = -bs-package-name reason-of-the-colossus
-src_root_dir = /home/thales/dev/reason-of-the-colossus
-bsc = /home/thales/dev/reason-of-the-colossus/node_modules/bs-platform/lib/bsc.exe
-bsdep = /home/thales/dev/reason-of-the-colossus/node_modules/bs-platform/lib/bsb_helper.exe
+src_root_dir = /home/thales/dev/rn_cljs_playground/reason
+bsc = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsc.exe
+bsdep = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
-bsc_flags = -nostdlib -I '/home/thales/dev/reason-of-the-colossus/node_modules/bs-platform/lib/ocaml' -bs-super-errors -color always
+bsc_flags = -nostdlib -I '/home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/ocaml' -bs-super-errors -color always
 ppx_flags = 
-bs_package_includes = -I /home/thales/dev/reason-of-the-colossus/node_modules/bs-react-native/lib/ocaml -I /home/thales/dev/reason-of-the-colossus/node_modules/reason-react/lib/ocaml
+bs_package_includes = -I /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-react-native/lib/ocaml -I /home/thales/dev/rn_cljs_playground/reason/node_modules/reason-react/lib/ocaml
 bs_package_dev_includes = 
 namespace = 
 bsb_dir_group = 0
-refmt = /home/thales/dev/reason-of-the-colossus/node_modules/bs-platform/lib/refmt.exe
-reason_react_jsx = -ppx '/home/thales/dev/reason-of-the-colossus/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+refmt = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = -ppx '/home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I re
 rule build_ast_and_module_sets_from_re
