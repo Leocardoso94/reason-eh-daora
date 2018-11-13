@@ -3,6 +3,7 @@
 
 var List = require("bs-platform/lib/js/list.js");
 var Block = require("bs-platform/lib/js/block.js");
+var Marker = require("./Marker.js");
 var MapView = require("./MapView.js");
 var ReasonReact = require("reason-react/lib/js/src/ReasonReact.js");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
@@ -80,10 +81,10 @@ function app() {
                                       Style$BsReactNative.height(/* Pt */Block.__(0, [400])),
                                       /* [] */0
                                     ]
-                                  ])), /* array */[]))
+                                  ])), /* array */[ReasonReact.element(undefined, undefined, Marker.make(regiao, undefined, /* array */[]))]))
                 ]));
 }
 
 exports.restaurants = restaurants;
 exports.app = app;
-/* MapView Not a pure module */
+/* Marker Not a pure module */

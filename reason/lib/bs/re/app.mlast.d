@@ -1,1 +1,1 @@
-re/app.cmj : re/MapView.cmj re/RestaurantCard.cmj
+re/app.cmj : re/MapView.cmj re/Marker.cmj re/RestaurantCard.cmj

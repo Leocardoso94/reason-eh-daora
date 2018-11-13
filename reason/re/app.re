@@ -21,5 +21,7 @@ let app = () => {
     <Text value={js|Reason é da hora!|js} />
     /* (ReasonReact.array(Array.of_list(cards))) */
 
-    <MapView region=regiao style=Style.(style([width(Pt(400.)), height(Pt(400.))])) />
+    <MapView region=regiao style=Style.(style([width(Pt(400.)), height(Pt(400.))]))>
+        <Marker coordinate=regiao />
+    </MapView>
   </View>};
