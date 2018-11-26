@@ -2,28 +2,26 @@
 'use strict';
 
 var List = require("bs-platform/lib/js/list.js");
-var Block = require("bs-platform/lib/js/block.js");
-var Marker = require("./Marker.js");
-var MapView = require("./MapView.js");
+var Random = require("bs-platform/lib/js/random.js");
+var MainView = require("./MainView.js");
 var ReasonReact = require("reason-react/lib/js/src/ReasonReact.js");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
 var RestaurantCard = require("./RestaurantCard.js");
-var Text$BsReactNative = require("bs-react-native/lib/js/src/components/text.js");
 var View$BsReactNative = require("bs-react-native/lib/js/src/components/view.js");
 var Style$BsReactNative = require("bs-react-native/lib/js/src/style.js");
 
 var restaurants = /* :: */[
   /* record */[
     /* name */"Caf\xc3\xa9 \xc3\x81rabe",
-    /* lat */0.0,
-    /* lng */0.0,
+    /* lat */-23.5744987,
+    /* lng */-46.690489,
     /* cuisine : Arab */1
   ],
   /* :: */[
     /* record */[
       /* name */"Giggio",
-      /* lat */0.0,
-      /* lng */0.0,
+      /* lat */-23.5653385,
+      /* lng */-46.6836678,
       /* cuisine : Italian */0
     ],
     /* :: */[
@@ -43,8 +41,8 @@ var restaurants = /* :: */[
         /* :: */[
           /* record */[
             /* name */"Alem\xc3\xa3o",
-            /* lat */0.0,
-            /* lng */0.0,
+            /* lat */-27.5744987,
+            /* lng */-46.690489,
             /* cuisine : Other */3
           ],
           /* [] */0
@@ -55,15 +53,10 @@ var restaurants = /* :: */[
 ];
 
 function app() {
+  Random.init(Date.now() | 0);
   List.mapi((function (i, r) {
           return ReasonReact.element(String(i), undefined, RestaurantCard.make(r, /* array */[]));
         }), restaurants);
-  var regiao = {
-    latitude: -23.5720498,
-    longitude: -46.6918662,
-    latitudeDelta: 0.09,
-    longitudeDelta: 0.04
-  };
   return ReasonReact.element(undefined, undefined, View$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Js_primitive.some(Style$BsReactNative.style(/* :: */[
                             Style$BsReactNative.flex(1),
                             /* :: */[
@@ -73,18 +66,9 @@ function app() {
                                 /* [] */0
                               ]
                             ]
-                          ])), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[
-                  ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, "Reason é da hora!", /* array */[])),
-                  ReasonReact.element(undefined, undefined, MapView.make(regiao, Js_primitive.some(Style$BsReactNative.style(/* :: */[
-                                    Style$BsReactNative.width(/* Pt */Block.__(0, [400])),
-                                    /* :: */[
-                                      Style$BsReactNative.height(/* Pt */Block.__(0, [400])),
-                                      /* [] */0
-                                    ]
-                                  ])), /* array */[ReasonReact.element(undefined, undefined, Marker.make(regiao, undefined, /* array */[]))]))
-                ]));
+                          ])), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[ReasonReact.element(undefined, undefined, MainView.make(restaurants, /* array */[]))]));
 }
 
 exports.restaurants = restaurants;
 exports.app = app;
-/* Marker Not a pure module */
+/* MainView Not a pure module */

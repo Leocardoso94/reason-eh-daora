@@ -1,16 +1,16 @@
 bs_package_flags = -bs-package-name reason-of-the-colossus
-src_root_dir = /home/thales/dev/rn_cljs_playground/reason
-bsc = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsc.exe
-bsdep = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsb_helper.exe
+src_root_dir = /home/leocardoso/Sources/studies/rn_cljs_playground/reason
+bsc = /home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsc.exe
+bsdep = /home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
-bsc_flags = -nostdlib -I '/home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/ocaml' -bs-super-errors -color always
+bsc_flags = -nostdlib -I '/home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-platform/lib/ocaml' -bs-super-errors -color always
 ppx_flags = 
-bs_package_includes = -I /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-react-native/lib/ocaml -I /home/thales/dev/rn_cljs_playground/reason/node_modules/reason-react/lib/ocaml
+bs_package_includes = -I /home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-react-native/lib/ocaml -I /home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/reason-react/lib/ocaml
 bs_package_dev_includes = 
 namespace = 
 bsb_dir_group = 0
-refmt = /home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/refmt.exe
-reason_react_jsx = -ppx '/home/thales/dev/rn_cljs_playground/reason/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+refmt = /home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = -ppx '/home/leocardoso/Sources/studies/rn_cljs_playground/reason/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I re
 rule build_ast_and_module_sets_from_re
@@ -38,9 +38,14 @@ build re/MapView.mlast.d : build_deps re/MapView.mlast
 build re/MapView.cmj |  $src_root_dir/lib/js/re/MapView.js re/MapView.cmi : build_cmj_cmi re/MapView.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
+build re/MainView.mlast : build_ast_and_module_sets_from_re $src_root_dir/re/MainView.re
+build re/MainView.mlast.d : build_deps re/MainView.mlast
+build re/MainView.cmj |  $src_root_dir/lib/js/re/MainView.js re/MainView.cmi : build_cmj_cmi re/MainView.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
 build re/RestaurantCard.mlast : build_ast_and_module_sets_from_re $src_root_dir/re/RestaurantCard.re
 build re/RestaurantCard.mlast.d : build_deps re/RestaurantCard.mlast
 build re/RestaurantCard.cmj |  $src_root_dir/lib/js/re/RestaurantCard.js re/RestaurantCard.cmi : build_cmj_cmi re/RestaurantCard.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/re
-build build.ninja : phony  ||  re/RestaurantCard.mlast.d re/MapView.mlast.d re/Marker.mlast.d re/app.mlast.d
+build build.ninja : phony  ||  re/RestaurantCard.mlast.d re/MainView.mlast.d re/MapView.mlast.d re/Marker.mlast.d re/app.mlast.d

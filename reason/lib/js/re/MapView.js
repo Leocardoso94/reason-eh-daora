@@ -6,7 +6,7 @@ var ReasonReact = require("reason-react/lib/js/src/ReasonReact.js");
 
 function make(region, style, children) {
   return ReasonReact.wrapJsForReason(Expo.MapView, {
-              initialRegion: region,
+              region: region,
               style: style
             }, children);
 }

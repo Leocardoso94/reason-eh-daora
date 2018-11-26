@@ -22,7 +22,7 @@ let make = (~region, ~style=?, children) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=mapView,
   ~props={
-    "initialRegion": region,
+    "region": region,
     "style": style
   },
     children,
